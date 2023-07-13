@@ -1,0 +1,211 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Oponente.gd" type="Script" id=3]
+[ext_resource path="res://mesa.png" type="Texture" id=4]
+[ext_resource path="res://poetsen.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Level.gd" type="Script" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 960, 50 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 50, 540 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+[node name="Level" type="Node2D"]
+position = Vector2( 180, 18 )
+rotation = 1.57134
+scale = Vector2( 0.145, 0.169 )
+script = ExtResource( 6 )
+
+[node name="ParedSuperior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedSuperior"]
+position = Vector2( 960, -50 )
+shape = SubResource( 1 )
+
+[node name="ParedInferior" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
+position = Vector2( 960, 1130 )
+shape = SubResource( 1 )
+
+[node name="ArcoPlayer" type="Area2D" parent="."]
+position = Vector2( -20.6971, -11.8246 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoPlayer"]
+position = Vector2( -50, 540 )
+shape = SubResource( 2 )
+
+[node name="ArcoOponente" type="Area2D" parent="."]
+position = Vector2( 62.0652, -5.94629 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArcoOponente"]
+position = Vector2( 1970, 540 )
+shape = SubResource( 2 )
+
+[node name="MarcadorPlayer" type="Label" parent="."]
+margin_left = -1766.51
+margin_top = 3929.4
+margin_right = 354.139
+margin_bottom = 5009.4
+rect_rotation = -90.0
+rect_scale = Vector2( 3.5, 3.5 )
+custom_colors/font_color = Color( 0.909804, 0.372549, 0.0470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "MarcadorPlayer"
+align = 1
+valign = 1
+clip_text = true
+
+[node name="MarcadorOponente" type="Label" parent="."]
+margin_left = -1760.75
+margin_top = 3820.25
+margin_right = -40.636
+margin_bottom = 4900.25
+rect_rotation = -90.0
+rect_scale = Vector2( 3.5, 3.5 )
+custom_colors/font_color = Color( 0.909804, 0.372549, 0.0470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "MarcadorPlayer"
+align = 1
+valign = 1
+
+[node name="RestartTimer" type="Timer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1284.33, 531.604 )
+rotation = -1.5708
+scale = Vector2( 1.56929, 2.8658 )
+texture = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1724.4, 413.396 )
+
+[node name="Player2V" parent="." instance=ExtResource( 1 )]
+position = Vector2( 324.49, 556.062 )
+script = ExtResource( 3 )
+
+[node name="Ball" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1083.11, 549.791 )
+
+[node name="interior pared" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 213.816, 35.4032 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 648.351, 118.041 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D2"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 434.524, 64.8859 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D3"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 882.852, 147.517 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D4"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 1103.59, 218.42 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D5"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="interior pared"]
+position = Vector2( 1255.34, 259.77 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared/StaticBody2D6"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="interior pared2" type="StaticBody2D" parent="."]
+position = Vector2( 6.60787, -455.625 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 186.177, -47.4241 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 427.522, -100.791 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D2"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 661.975, -148.238 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D3"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 903.328, -189.771 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D4"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 1110.19, -243.121 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D5"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="interior pared2"]
+position = Vector2( 1296.38, -266.877 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interior pared2/StaticBody2D6"]
+position = Vector2( 386.971, 761.192 )
+scale = Vector2( 10.8593, -2.05387 )
+shape = SubResource( 4 )
+
+[connection signal="body_entered" from="ArcoPlayer" to="." method="_on_ArcoPlayer_body_entered"]
+[connection signal="body_entered" from="ArcoOponente" to="." method="_on_ArcoOponente_body_entered"]
